@@ -1,20 +1,9 @@
-export function withBase(path: string): string {
-  if (!path) return "";
+export function toOneLine(input: string): string {
+  return input.replace(/\s+/g, " ").trim();
+}
 
-  // Keep absolute URLs and data URIs unchanged.
-  if (
-    path.startsWith("http://") ||
-    path.startsWith("https://") ||
-    path.startsWith("mailto:") ||
-    path.startsWith("data:")
-  ) {
-    return path;
-  }
-
-  // Vite injects BASE_URL ("/" in dev; "/repo/" on GitHub Pages project sites).
-  const base = import.meta.env.BASE_URL || "/";
-
-  // Normalize to avoid double slashes.
-  if (path.startsWith("/")) return `${base}${path.slice(1)}`;
-  return `${base}${path}`;
+export function truncate(input: string, max = 160): string {
+  const s = toOneLine(input);
+  if (s.length <= max) return s;
+  return `${s.slice(0, max - 1).trimEnd()}…`;
 }
