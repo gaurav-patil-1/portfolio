@@ -1,0 +1,40 @@
+/* Optional baseline if you want to migrate away from styled-components later.
+   Enable by importing in src/main.tsx.
+
+   This file is intentionally minimal: it gives you a stable global foundation.
+   Your token source of truth is still src/styles/theme.ts for now.
+*/
+
+:root {
+  --nav-h: 72px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica,
+    Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  line-height: 1.55;
+  overflow-x: hidden;
+}
+
+:focus-visible {
+  outline: 2px solid #4cc9f0;
+  outline-offset: 3px;
+  border-radius: 10px;
+}
