@@ -868,9 +868,9 @@ button { font: inherit; }
   .card,
   .info-card,
   .callout { padding: 20px; }
-  .nav { align-items: flex-start; padding: 12px 0; flex-wrap: wrap; }
-  .brand { flex: 0 0 100%; margin-bottom: 4px; }
-  .nav-right { position: absolute; right: 20px; top: 12px; }
+  .nav { min-height: 56px; }
+  .brand { flex: unset; margin-bottom: 0; }
+  .nav-right { position: static; }
   .hero h1 { font-size: 2rem; }
 }
 
