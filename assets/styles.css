@@ -846,6 +846,12 @@ button { font: inherit; }
 /* ============================================================
    UTILITY
    ============================================================ */
+.button.disabled,
+.button-secondary.disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  pointer-events: none;
+}
 .muted { color: var(--text-2); }
 .small { font-size: 0.85rem; }
 
