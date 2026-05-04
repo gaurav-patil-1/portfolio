@@ -29,7 +29,7 @@
     sections.forEach(function (s) { sectionObs.observe(s); });
   }
 
-  /* ---- Scroll-triggered reveal ---- */
+  /* ---- Scroll-triggered reveal (cards + section headers) ---- */
   const reveals = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
     const revealObs = new IntersectionObserver(
