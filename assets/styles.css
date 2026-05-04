@@ -221,8 +221,34 @@ button { font: inherit; }
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 10px;
   margin-bottom: 14px;
+  min-width: 0;
 }
+.mobile-panel-top .brand {
+  flex-shrink: 1;
+  min-width: 0;
+}
+.mobile-panel-top .brand span:last-child {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.menu-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--r-s);
+  background: var(--surface-3);
+  border: 1px solid var(--border-mid);
+  color: var(--text-2);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background var(--t), color var(--t), border-color var(--t);
+}
+.menu-close:hover { background: var(--surface-3); border-color: var(--border-hi); color: var(--text); }
 .mobile-nav-links { display: grid; gap: 4px; }
 .mobile-nav-links a {
   display: block;
@@ -698,6 +724,27 @@ button { font: inherit; }
   color: var(--text-3);
   font-size: 0.82rem;
 }
+
+/* ============================================================
+   CONTACT ROW
+   ============================================================ */
+.contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 18px;
+}
+.contact-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-2);
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: color var(--t);
+}
+.contact-item:hover { color: var(--accent); text-decoration: none; }
+.contact-item svg { flex-shrink: 0; opacity: 0.7; }
 
 /* ============================================================
    UTILITY
