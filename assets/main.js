@@ -5,6 +5,10 @@
 (function () {
   'use strict';
 
+  /* ---- Dynamic copyright year ---- */
+  var yearEl = document.getElementById('copy-year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
   /* ---- Active nav link on scroll ---- */
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll(
