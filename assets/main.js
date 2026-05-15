@@ -5,6 +5,14 @@
   var yearEl = document.getElementById('copy-year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+  /* ---------- Dynamic Experience ---------- */
+  var expEl = document.getElementById('yearsExp');
+  if (expEl) {
+    var start = new Date(2023, 9, 9); // Oct 9, 2023
+    var years = Math.floor((new Date() - start) / (365.25 * 24 * 60 * 60 * 1000));
+    expEl.textContent = years + '+';
+  }
+
   /* ---------- Theme Toggle ---------- */
   var themeToggle = document.getElementById('themeToggle');
   var html = document.documentElement;
