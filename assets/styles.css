@@ -841,12 +841,19 @@ img {
   border-radius: 50%;
   background: var(--accent);
   border: 3px solid var(--bg-deep);
-  box-shadow: 0 0 0 3px var(--accent-border);
   z-index: 1;
   transition: background 0.3s;
 }
 
+.timeline-dot.active {
+  box-shadow: 0 0 0 3px var(--accent-border);
+}
+
 .timeline-dot::after {
+  content: none;
+}
+
+.timeline-dot.active::after {
   content: '';
   position: absolute;
   inset: -6px;
