@@ -1138,12 +1138,17 @@ img {
 
   .dock {
     bottom: 16px;
-    padding: 8px 12px;
-    gap: 2px;
+    padding: 10px 16px;
+    gap: 4px;
   }
 
   .dock-item {
-    padding: 10px 10px;
+    padding: 12px 12px;
+  }
+
+  .dock-item svg {
+    width: 22px;
+    height: 22px;
   }
 
   .top-actions {
@@ -1201,12 +1206,12 @@ img {
   }
 
   .dock-item {
-    padding: 8px 8px;
+    padding: 10px 10px;
   }
 
   .dock-item svg {
-    width: 18px;
-    height: 18px;
+    width: 22px;
+    height: 22px;
   }
 
   .resume-btn {
