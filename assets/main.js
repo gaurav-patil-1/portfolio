@@ -285,4 +285,113 @@
     }, { passive: true });
   }
 
+  /* ---------- Scroll Progress Bar ---------- */
+  var scrollBar = document.getElementById('scroll-bar');
+  if (scrollBar) {
+    window.addEventListener('scroll', function () {
+      var scrolled = document.documentElement.scrollTop || document.body.scrollTop;
+      var total    = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      scrollBar.style.width = (total > 0 ? (scrolled / total) * 100 : 0) + '%';
+    }, { passive: true });
+  }
+
+  /* ---------- Toast ---------- */
+  function showToast(msg) {
+    var t = document.getElementById('toast');
+    if (!t) return;
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(t._hideTimer);
+    t._hideTimer = setTimeout(function () { t.classList.remove('show'); }, 2500);
+  }
+
+  /* ---------- Copy Email ---------- */
+  document.querySelectorAll('.copy-btn[data-copy]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var text = btn.getAttribute('data-copy');
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(function () { showToast('\u2713 Email copied!'); });
+      } else {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.cssText = 'position:fixed;opacity:0;pointer-events:none';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        showToast('\u2713 Email copied!');
+      }
+    });
+  });
+
+  /* ---------- Easter Egg — Konami Code ---------- */
+  (function () {
+    var CODE = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown',
+                'ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+    var pos = 0;
+    var overlay  = document.getElementById('easter-egg');
+    var closeBtn = document.getElementById('easter-egg-close');
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && overlay) { overlay.classList.remove('active'); pos = 0; return; }
+      if (e.key === CODE[pos]) {
+        pos++;
+        if (pos === CODE.length) {
+          pos = 0;
+          if (overlay) { overlay.setAttribute('aria-hidden', 'false'); overlay.classList.add('active'); }
+        }
+      } else {
+        pos = (e.key === CODE[0]) ? 1 : 0;
+      }
+    });
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function () {
+        overlay.setAttribute('aria-hidden', 'true');
+        overlay.classList.remove('active');
+      });
+    }
+    if (overlay) {
+      overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) { overlay.setAttribute('aria-hidden', 'true'); overlay.classList.remove('active'); }
+      });
+    }
+  }());
+
+  /* ---------- Contact Form (Web3Forms) ---------- */
+  (function () {
+    var form      = document.getElementById('contact-form');
+    var statusEl  = document.getElementById('cf-status');
+    var submitBtn = document.getElementById('cf-submit');
+    if (!form) return;
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending\u2026';
+      statusEl.textContent = '';
+      statusEl.className = 'cf-status';
+
+      fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(form) })
+        .then(function (r) { return r.json(); })
+        .then(function (res) {
+          if (res.success) {
+            statusEl.textContent = '\u2713 Message sent! I\u2019ll get back to you soon.';
+            statusEl.className = 'cf-status success';
+            form.reset();
+          } else {
+            throw new Error('failed');
+          }
+        })
+        .catch(function () {
+          statusEl.textContent = 'Something went wrong \u2014 try emailing directly.';
+          statusEl.className = 'cf-status error';
+        })
+        .finally(function () {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send Message';
+        });
+    });
+  }());
+
 })();
