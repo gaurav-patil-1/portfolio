@@ -1,6 +1,27 @@
 ﻿(function () {
   'use strict';
 
+  /* ---------- Role Duration Badges ---------- */
+  (function () {
+    function getDuration(start, end) {
+      var s = new Date(start);
+      var e = new Date(end);
+      var years  = e.getFullYear() - s.getFullYear();
+      var months = e.getMonth()    - s.getMonth();
+      if (e.getDate() < s.getDate()) { months--; }
+      if (months < 0) { years--; months += 12; }
+      var y = years  > 0 ? years  + ' yr'  + (years  > 1 ? 's' : '') : '';
+      var m = months > 0 ? months + ' mo'  + (months > 1 ? 's' : '') : '';
+      return [y, m].filter(Boolean).join(' ') || '< 1 mo';
+    }
+
+    var se1 = document.getElementById('dur-se1');
+    if (se1) se1.textContent = getDuration('2023-10-08', '2025-03-01');
+
+    var se2 = document.getElementById('dur-se2');
+    if (se2) se2.textContent = getDuration('2025-03-01', new Date());
+  }());
+
   /* ---------- Copyright Year ---------- */
   var yearEl = document.getElementById('copy-year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
