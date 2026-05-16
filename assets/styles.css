@@ -1020,6 +1020,73 @@ img {
 }
 
 
+/* ---------- Contributions ---------- */
+
+.contributions-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.contributions-subtitle {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  text-align: center;
+  margin: 0;
+}
+
+.contrib-calendar-wrap {
+  width: 100%;
+  border-radius: 0.5rem;
+  padding: 1rem 1.5rem;
+  background: #ffffff;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+[data-theme="light"] .contrib-calendar-wrap {
+  background: #f0ebe3;
+}
+
+.contrib-calendar {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.contrib-stats-row {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.contrib-stat {
+  flex: 1;
+  min-width: 260px;
+  max-width: 420px;
+  height: auto;
+  display: block;
+}
+
+.contrib-gh-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .contrib-stat {
+    max-width: 100%;
+    width: 100%;
+  }
+  .contrib-calendar-wrap {
+    padding: 0.75rem;
+  }
+}
+
 /* ---------- Footer ---------- */
 
 .footer {

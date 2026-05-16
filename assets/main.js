@@ -25,8 +25,19 @@
       var next = current === 'dark' ? 'light' : 'dark';
       html.setAttribute('data-theme', next);
       localStorage.setItem('theme', next);
+      applyContribTheme(next);
     });
   }
+
+  /* ---------- GitHub Contribution Images Theme ---------- */
+  function applyContribTheme(theme) {
+    var imgs = document.querySelectorAll('.js-theme-img');
+    imgs.forEach(function (img) {
+      var src = img.getAttribute('data-' + theme + '-src');
+      if (src) img.src = src;
+    });
+  }
+  applyContribTheme(savedTheme);
 
   /* ---------- Dock Active State on Scroll ---------- */
   var sections = document.querySelectorAll('section[id]');
