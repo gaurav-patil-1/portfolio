@@ -324,7 +324,7 @@
     });
   });
 
-  /* ---------- Easter Egg — Konami Code ---------- */
+  /* ---------- Easter Egg - Konami Code ---------- */
   (function () {
     var CODE = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown',
                 'ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];

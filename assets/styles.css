@@ -1,5 +1,5 @@
 ﻿/* ==============================================
-   Gaurav Patil — Portfolio
+   Gaurav Patil - Portfolio
    Inspired by glass-morphism + deep-blue palette
    ============================================== */
 
@@ -456,7 +456,7 @@ img {
   -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 80%);
 }
 
-/* Floating gradient orbs — aurora / mesh-gradient effect */
+/* Floating gradient orbs - aurora / mesh-gradient effect */
 .hero-orb {
   position: absolute;
   border-radius: 50%;
