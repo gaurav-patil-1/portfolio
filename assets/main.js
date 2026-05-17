@@ -1,6 +1,29 @@
 ﻿(function () {
   'use strict';
 
+  /* ---------- Circular Favicon ---------- */
+  (function () {
+    var img = new Image();
+    img.onload = function () {
+      var size = 64;
+      var canvas = document.createElement('canvas');
+      canvas.width = size;
+      canvas.height = size;
+      var ctx = canvas.getContext('2d');
+      ctx.beginPath();
+      ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
+      ctx.closePath();
+      ctx.clip();
+      ctx.drawImage(img, 0, 0, size, size);
+      var link = document.querySelector("link[rel='icon']");
+      if (link) {
+        link.type = 'image/png';
+        link.href = canvas.toDataURL('image/png');
+      }
+    };
+    img.src = 'assets/avatar.jpg';
+  }());
+
   /* ---------- Role Duration Badges ---------- */
   (function () {
     function getDuration(start, end) {
