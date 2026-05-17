@@ -1057,7 +1057,9 @@ img {
   padding: 1rem 1.5rem;
   background: #0d1117;
   box-sizing: border-box;
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 [data-theme="light"] .contrib-calendar-wrap {
@@ -1127,11 +1129,15 @@ img {
 
 @media (max-width: 600px) {
   .contrib-stat {
+    min-width: 0;
     max-width: 100%;
     width: 100%;
   }
   .contrib-calendar-wrap {
-    padding: 0.75rem;
+    padding: 0.75rem 0.5rem;
+  }
+  .contrib-calendar {
+    min-width: 620px;
   }
 }
 
