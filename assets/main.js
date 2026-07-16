@@ -1,5 +1,7 @@
-﻿(function () {
+(function () {
   'use strict';
+
+  var html = document.documentElement;
 
   /* ---------- Circular Favicon ---------- */
   (function () {
@@ -23,6 +25,34 @@
     };
     img.src = 'assets/avatar.jpg';
   }());
+
+  /* ---------- Theme ---------- */
+  var THEME_COLORS = { dark: '#0e0d0b', light: '#faf6ef' };
+
+  function currentTheme() {
+    return html.getAttribute('data-theme') || 'dark';
+  }
+
+  function setTheme(theme) {
+    html.setAttribute('data-theme', theme);
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', THEME_COLORS[theme]);
+  }
+
+  var savedTheme = localStorage.getItem('theme');
+  if (!savedTheme && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+    savedTheme = 'light';
+  }
+  setTheme(savedTheme || 'dark');
+
+  var themeToggle = document.getElementById('themeToggle');
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function () {
+      var next = currentTheme() === 'dark' ? 'light' : 'dark';
+      setTheme(next);
+      localStorage.setItem('theme', next);
+    });
+  }
 
   /* ---------- Role Duration Badges ---------- */
   (function () {
@@ -57,31 +87,56 @@
     expEl.textContent = years + '+';
   }
 
-  /* ---------- Theme Toggle ---------- */
-  var themeToggle = document.getElementById('themeToggle');
-  var html = document.documentElement;
-  var savedTheme = localStorage.getItem('theme') || 'dark';
-  html.setAttribute('data-theme', savedTheme);
-
-  if (themeToggle) {
-    themeToggle.addEventListener('click', function () {
-      var current = html.getAttribute('data-theme');
-      var next = current === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next);
-      applyContribTheme(next);
+  /* ---------- Local Time (IST) ---------- */
+  (function () {
+    var timeEl = document.getElementById('localTime');
+    if (!timeEl) return;
+    var fmt = new Intl.DateTimeFormat('en-GB', {
+      timeZone: 'Asia/Kolkata',
+      hour: '2-digit',
+      minute: '2-digit'
     });
+    function tick() { timeEl.textContent = fmt.format(new Date()); }
+    tick();
+    setInterval(tick, 30000);
+  }());
+
+  /* ---------- Header scrolled state ---------- */
+  var header = document.getElementById('siteHeader');
+  if (header) {
+    var onScroll = function () {
+      header.classList.toggle('scrolled', window.scrollY > 10);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
   }
 
-  /* ---------- GitHub Contribution Images Theme ---------- */
-  function applyContribTheme(theme) {
-    var imgs = document.querySelectorAll('.js-theme-img');
-    imgs.forEach(function (img) {
-      var src = img.getAttribute('data-' + theme + '-src');
-      if (src) img.src = src;
+  /* ---------- Mobile menu overlay ---------- */
+  (function () {
+    var toggle = document.getElementById('menuToggle');
+    var overlay = document.getElementById('menuOverlay');
+    if (!toggle || !overlay) return;
+
+    function setMenu(open) {
+      document.body.classList.toggle('menu-open', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      overlay.setAttribute('aria-hidden', String(!open));
+    }
+
+    toggle.addEventListener('click', function () {
+      setMenu(!document.body.classList.contains('menu-open'));
     });
-  }
-  applyContribTheme(savedTheme);
+
+    overlay.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () { setMenu(false); });
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && document.body.classList.contains('menu-open')) setMenu(false);
+    });
+  }());
 
   /* ---------- GitHub Contribution Heatmap ---------- */
   (function () {
@@ -90,9 +145,10 @@
     if (!container) return;
 
     var COLORS = {
-      dark:  ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'],
-      light: ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39']
+      dark:  ['#201d19', '#4a2617', '#8a3d1e', '#cf5525', '#ff6d3f'],
+      light: ['#eee8df', '#f6c9b2', '#e88f5e', '#d05a25', '#a83c0e']
     };
+    var LABEL = { dark: '#78726a', light: '#989085' };
 
     var CELL = 11;
     var GAP  = 2;
@@ -152,8 +208,7 @@
         var m = Number(firstDay.date.split('-')[1]) - 1;
         if (m !== lastMonth) {
           monthLabels.push(
-            '<text x="' + (wi * STEP) + '" y="10" fill="' +
-            (theme === 'dark' ? '#8b949e' : '#57606a') +
+            '<text x="' + (wi * STEP) + '" y="10" fill="' + LABEL[theme] +
             '" font-size="9" font-family="inherit">' + MONTHS[m] + '</text>'
           );
           lastMonth = m;
@@ -205,6 +260,42 @@
       });
     }
 
+    /* Native GitHub stats — total, longest streak, current streak */
+    function renderStats(contributions) {
+      var statsEl = document.getElementById('gh-stats');
+      if (!statsEl) return;
+
+      var total = 0;
+      var longest = 0;
+      var run = 0;
+
+      contributions.forEach(function (c) {
+        total += c.count;
+        if (c.count > 0) {
+          run++;
+          if (run > longest) longest = run;
+        } else {
+          run = 0;
+        }
+      });
+
+      // Current streak: consecutive days ending today (or yesterday, if today has none yet)
+      var current = 0;
+      var i = contributions.length - 1;
+      if (i >= 0 && contributions[i].count === 0) i--;
+      while (i >= 0 && contributions[i].count > 0) { current++; i--; }
+
+      function stat(value, label) {
+        return '<div class="gh-stat"><span class="gh-stat-value">' + value +
+          '</span><span class="gh-stat-label mono">' + label + '</span></div>';
+      }
+
+      statsEl.innerHTML =
+        stat(total.toLocaleString('en'), 'Contributions · past year') +
+        stat(longest + (longest === 1 ? ' day' : ' days'), 'Longest streak') +
+        stat(current + (current === 1 ? ' day' : ' days'), 'Current streak');
+    }
+
     var cachedWeeks = null;
 
     function draw(theme) {
@@ -215,34 +306,31 @@
 
     // Re-render on theme change
     new MutationObserver(function () {
-      draw(html.getAttribute('data-theme') || 'dark');
+      draw(currentTheme());
     }).observe(html, { attributes: true, attributeFilter: ['data-theme'] });
 
     // Show loading placeholder
-    container.innerHTML = '<div class="contrib-loading">Loading contributions\u2026</div>';
+    container.innerHTML = '<div class="contrib-loading">Loading contributions…</div>';
 
     fetch('https://github-contributions-api.jogruber.de/v4/' + username + '?y=last')
       .then(function (r) { return r.json(); })
       .then(function (data) {
         cachedWeeks = buildWeeks(data.contributions);
-        draw(html.getAttribute('data-theme') || 'dark');
+        draw(currentTheme());
+        renderStats(data.contributions);
       })
       .catch(function () {
         container.innerHTML = '<div class="contrib-loading">Could not load contribution data.</div>';
       });
   }());
 
-  /* ---------- Dock Active State on Scroll ---------- */
+  /* ---------- Nav active state on scroll ---------- */
   var sections = document.querySelectorAll('section[id]');
-  var dockItems = document.querySelectorAll('.dock-item[data-section]');
+  var navLinks = document.querySelectorAll('a[data-section]');
 
-  function setActiveDock(id) {
-    dockItems.forEach(function (item) {
-      if (item.getAttribute('data-section') === id) {
-        item.classList.add('active');
-      } else {
-        item.classList.remove('active');
-      }
+  function setActiveNav(id) {
+    navLinks.forEach(function (link) {
+      link.classList.toggle('active', link.getAttribute('data-section') === id);
     });
   }
 
@@ -250,7 +338,7 @@
     var sectionObs = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-          setActiveDock(entry.target.id);
+          setActiveNav(entry.target.id);
         }
       });
     }, { rootMargin: '-20% 0px -60% 0px' });
@@ -258,23 +346,11 @@
     sections.forEach(function (s) { sectionObs.observe(s); });
   }
 
-  /* ---------- Smooth dock click ---------- */
-  dockItems.forEach(function (item) {
-    item.addEventListener('click', function (e) {
-      var href = item.getAttribute('href');
-      if (href && href.startsWith('#')) {
-        e.preventDefault();
-        var target = document.querySelector(href);
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }
-    });
-  });
-
   /* ---------- Scroll Reveal ---------- */
   var revealEls = document.querySelectorAll(
-    '.section, .glass-card, .hero-content, .hero-stats, .timeline-entry'
+    '.section-head, .about-statement, .about-facts, .stack-rows, .xp-row, ' +
+    '.feature, .projects-more, .activity-sub, .contrib-calendar-wrap, .gh-stats, ' +
+    '.contact-kicker, .contact-cta, .contact-email-row, .cf-form, .contact-socials'
   );
 
   if ('IntersectionObserver' in window) {
@@ -291,21 +367,6 @@
       el.classList.add('reveal');
       revealObs.observe(el);
     });
-  }
-
-  /* ---------- Hide dock on scroll up near hero, show otherwise ---------- */
-  var dock = document.getElementById('dock');
-  var lastScroll = 0;
-
-  if (dock) {
-    window.addEventListener('scroll', function () {
-      var currentScroll = window.scrollY;
-      if (currentScroll < 100) {
-        dock.style.opacity = '1';
-        dock.style.transform = 'translateX(-50%) translateY(0)';
-      }
-      lastScroll = currentScroll;
-    }, { passive: true });
   }
 
   /* ---------- Scroll Progress Bar ---------- */
@@ -332,22 +393,30 @@
   document.querySelectorAll('.copy-btn[data-copy]').forEach(function (btn) {
     btn.addEventListener('click', function () {
       var text = btn.getAttribute('data-copy');
-      if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(text).then(function () { showToast('\u2713 Email copied!'); });
-      } else {
+
+      function legacyCopy() {
         var ta = document.createElement('textarea');
         ta.value = text;
         ta.style.cssText = 'position:fixed;opacity:0;pointer-events:none';
         document.body.appendChild(ta);
         ta.select();
-        document.execCommand('copy');
+        var ok = false;
+        try { ok = document.execCommand('copy'); } catch (e) { /* unsupported */ }
         document.body.removeChild(ta);
-        showToast('\u2713 Email copied!');
+        showToast(ok ? '✓ Email copied!' : 'Copy failed — email is gauravpatil5152@gmail.com');
+      }
+
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text)
+          .then(function () { showToast('✓ Email copied!'); })
+          .catch(legacyCopy);
+      } else {
+        legacyCopy();
       }
     });
   });
 
-  /* ---------- Easter Egg - Konami Code ---------- */
+  /* ---------- Easter Egg — Konami Code ---------- */
   (function () {
     var CODE = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown',
                 'ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
@@ -391,7 +460,7 @@
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       submitBtn.disabled = true;
-      submitBtn.textContent = 'Sending\u2026';
+      submitBtn.textContent = 'Sending…';
       statusEl.textContent = '';
       statusEl.className = 'cf-status';
 
@@ -399,7 +468,7 @@
         .then(function (r) { return r.json(); })
         .then(function (res) {
           if (res.success) {
-            statusEl.textContent = '\u2713 Message sent! I\u2019ll get back to you soon.';
+            statusEl.textContent = '✓ Message sent! I’ll get back to you soon.';
             statusEl.className = 'cf-status success';
             form.reset();
           } else {
@@ -407,12 +476,12 @@
           }
         })
         .catch(function () {
-          statusEl.textContent = 'Something went wrong \u2014 try emailing directly.';
+          statusEl.textContent = 'Something went wrong — try emailing directly.';
           statusEl.className = 'cf-status error';
         })
         .finally(function () {
           submitBtn.disabled = false;
-          submitBtn.textContent = 'Send Message';
+          submitBtn.innerHTML = 'Send message<span class="btn-arrow" aria-hidden="true">→</span>';
         });
     });
   }());
