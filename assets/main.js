@@ -23,8 +23,14 @@
         link.href = canvas.toDataURL('image/png');
       }
     };
-    img.src = 'assets/avatar.jpg';
+    img.src = 'assets/portrait.jpg';
   }());
+
+  /* ---------- Portrait guard ---------- */
+  document.querySelectorAll('.portrait').forEach(function (fig) {
+    fig.addEventListener('contextmenu', function (e) { e.preventDefault(); });
+    fig.addEventListener('dragstart', function (e) { e.preventDefault(); });
+  });
 
   /* ---------- Theme ---------- */
   var THEME_COLORS = { dark: '#0e0d0b', light: '#faf6ef' };
@@ -318,6 +324,11 @@
         cachedWeeks = buildWeeks(data.contributions);
         draw(currentTheme());
         renderStats(data.contributions);
+        // On narrow screens the strip overflows — start at the recent end
+        var wrap = container.closest('.contrib-calendar-wrap');
+        if (wrap && wrap.scrollWidth > wrap.clientWidth) {
+          wrap.scrollLeft = wrap.scrollWidth;
+        }
       })
       .catch(function () {
         container.innerHTML = '<div class="contrib-loading">Could not load contribution data.</div>';
