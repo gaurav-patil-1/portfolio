@@ -1325,6 +1325,21 @@ img {
   }
 }
 
+/* Phones requesting a desktop viewport still have a tall, touch-first screen.
+   Keep the desktop navigation, but avoid stretching the hero to that full height. */
+@media (min-width: 761px) and (max-width: 1024px) and (orientation: portrait) and (hover: none) and (pointer: coarse) {
+  .hero {
+    min-height: auto;
+    justify-content: flex-start;
+    padding-top: 120px;
+    padding-bottom: 88px;
+  }
+
+  .hero-scroll {
+    display: none;
+  }
+}
+
 /* Mobile nav switch */
 @media (max-width: 760px) {
   .main-nav { display: none; }
