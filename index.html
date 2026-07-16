@@ -1,351 +1,656 @@
 <!doctype html>
 <html lang="en" data-theme="dark">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Gaurav Patil — Software Engineer</title>
-  <meta name="description" content="Portfolio of Gaurav Patil, Software Engineer II at Catchpoint. Building fast, reliable product experiences with React + TypeScript.">
-  <meta name="robots" content="index,follow">
-  <meta name="theme-color" content="#0e0d0b">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Geist+Mono:wght@400;500&display=swap">
-  <link rel="icon" type="image/svg+xml" href="public/favicon.svg">
-  <link rel="canonical" href="https://gauravpatil.dev/">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Gaurav Patil — Software Engineer">
-  <meta property="og:description" content="Portfolio of Gaurav Patil, Software Engineer II at Catchpoint. Building fast, reliable product experiences with React + TypeScript.">
-  <meta property="og:url" content="https://gauravpatil.dev/">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Gaurav Patil — Software Engineer">
-  <meta name="twitter:description" content="Building fast, reliable product experiences with React + TypeScript.">
-  <link rel="stylesheet" href="assets/styles.css?v=6">
-</head>
-<body>
-  <div id="scroll-bar" aria-hidden="true"></div>
-  <a class="skip-link" href="#main">Skip to content</a>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gaurav Patil — Software Engineer</title>
+    <meta
+      name="description"
+      content="Portfolio of Gaurav Patil, Software Engineer II at Catchpoint. Building fast, reliable product experiences with React + TypeScript."
+    />
+    <meta name="robots" content="index,follow" />
+    <meta name="theme-color" content="#0e0d0b" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Geist+Mono:wght@400;500&display=swap"
+    />
+    <link rel="icon" type="image/svg+xml" href="public/favicon.svg" />
+    <link rel="canonical" href="https://gauravpatil.dev/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Gaurav Patil — Software Engineer" />
+    <meta
+      property="og:description"
+      content="Portfolio of Gaurav Patil, Software Engineer II at Catchpoint. Building fast, reliable product experiences with React + TypeScript."
+    />
+    <meta property="og:url" content="https://gauravpatil.dev/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Gaurav Patil — Software Engineer" />
+    <meta
+      name="twitter:description"
+      content="Building fast, reliable product experiences with React + TypeScript."
+    />
+    <link rel="stylesheet" href="assets/styles.css?v=6" />
+  </head>
+  <body>
+    <div id="scroll-bar" aria-hidden="true"></div>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- ========== HEADER ========== -->
-  <header class="site-header" id="siteHeader">
-    <a class="brand" href="#home">Gaurav Patil<span class="brand-dot">.</span></a>
+    <!-- HEADER  -->
+    <header class="site-header" id="siteHeader">
+      <a class="brand" href="#home"
+        >Gaurav Patil<span class="brand-dot">.</span></a
+      >
 
-    <nav class="main-nav" aria-label="Primary">
-      <a href="#about" data-section="about">About</a>
-      <a href="#experience" data-section="experience">Experience</a>
-      <a href="#projects" data-section="projects">Projects</a>
-      <a href="#activity" data-section="activity">Activity</a>
-      <a href="#contact" data-section="contact">Contact</a>
-    </nav>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="#about" data-section="about">About</a>
+        <a href="#experience" data-section="experience">Experience</a>
+        <a href="#projects" data-section="projects">Projects</a>
+        <a href="#activity" data-section="activity">Activity</a>
+        <a href="#contact" data-section="contact">Contact</a>
+      </nav>
 
-    <div class="header-actions">
-      <a class="header-resume" href="public/gaurav_patil_resume.pdf" download="Gaurav_Patil_Resume.pdf">Résumé</a>
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      </button>
-      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="menuOverlay">
-        <span></span><span></span>
-      </button>
-    </div>
-  </header>
+      <div class="header-actions">
+        <a
+          class="header-resume"
+          href="public/gaurav_patil_resume.pdf"
+          download="Gaurav_Patil_Resume.pdf"
+          >Résumé</a
+        >
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <svg
+            class="icon-sun"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="5" />
+            <line x1="12" y1="1" x2="12" y2="3" />
+            <line x1="12" y1="21" x2="12" y2="23" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+            <line x1="1" y1="12" x2="3" y2="12" />
+            <line x1="21" y1="12" x2="23" y2="12" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+          </svg>
+          <svg
+            class="icon-moon"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+        </button>
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="menuOverlay"
+        >
+          <span></span><span></span>
+        </button>
+      </div>
+    </header>
 
-  <!-- ========== FULLSCREEN MENU (mobile) ========== -->
-  <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
-    <nav class="overlay-nav" aria-label="Menu">
-      <a href="#about" data-section="about"><span class="overlay-no">01</span>About</a>
-      <a href="#experience" data-section="experience"><span class="overlay-no">02</span>Experience</a>
-      <a href="#projects" data-section="projects"><span class="overlay-no">03</span>Projects</a>
-      <a href="#activity" data-section="activity"><span class="overlay-no">04</span>Activity</a>
-      <a href="#education" data-section="education"><span class="overlay-no">05</span>Education</a>
-      <a href="#contact" data-section="contact"><span class="overlay-no">06</span>Contact</a>
-    </nav>
-    <div class="overlay-foot">
-      <a href="public/gaurav_patil_resume.pdf" download="Gaurav_Patil_Resume.pdf">Download résumé</a>
-      <div class="overlay-socials">
-        <a href="https://github.com/gaurav-patil-1" target="_blank" rel="noreferrer">GitHub</a>
-        <a href="https://www.linkedin.com/in/patil-gaurav-dinesh" target="_blank" rel="noreferrer">LinkedIn</a>
-        <a href="mailto:gauravpatil5152@gmail.com">Email</a>
+    <!-- FULLSCREEN MENU (mobile) -->
+    <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+      <nav class="overlay-nav" aria-label="Menu">
+        <a href="#about" data-section="about"
+          ><span class="overlay-no">01</span>About</a
+        >
+        <a href="#experience" data-section="experience"
+          ><span class="overlay-no">02</span>Experience</a
+        >
+        <a href="#projects" data-section="projects"
+          ><span class="overlay-no">03</span>Projects</a
+        >
+        <a href="#activity" data-section="activity"
+          ><span class="overlay-no">04</span>Activity</a
+        >
+        <a href="#education" data-section="education"
+          ><span class="overlay-no">05</span>Education</a
+        >
+        <a href="#contact" data-section="contact"
+          ><span class="overlay-no">06</span>Contact</a
+        >
+      </nav>
+      <div class="overlay-foot">
+        <a
+          href="public/gaurav_patil_resume.pdf"
+          download="Gaurav_Patil_Resume.pdf"
+          >Download résumé</a
+        >
+        <div class="overlay-socials">
+          <a
+            href="https://github.com/gaurav-patil-1"
+            target="_blank"
+            rel="noreferrer"
+            >GitHub</a
+          >
+          <a
+            href="https://www.linkedin.com/in/patil-gaurav-dinesh"
+            target="_blank"
+            rel="noreferrer"
+            >LinkedIn</a
+          >
+          <a href="mailto:gauravpatil5152@gmail.com">Email</a>
+        </div>
       </div>
     </div>
-  </div>
 
-  <main id="main">
+    <main id="main">
+      <!-- HERO -->
+      <section class="hero" id="home">
+        <div class="hero-inner">
+          <p class="hero-eyebrow">
+            <span class="pulse-dot" aria-hidden="true"></span>Software Engineer
+            II at Catchpoint
+          </p>
+          <h1 class="hero-name">Gaurav <em>Patil</em></h1>
+          <p class="hero-lede">
+            I build fast, reliable products for the web — clean interfaces,
+            dependable APIs, and systems that stay quick as they scale.
+            React&nbsp;+&nbsp;TypeScript up front, .NET&nbsp;+&nbsp;GraphQL
+            underneath.
+          </p>
+          <div class="hero-meta mono">
+            <span>Bengaluru, India</span>
+            <span class="meta-sep" aria-hidden="true">·</span>
+            <span><span id="yearsExp">2+</span> years shipping</span>
+            <span class="meta-sep" aria-hidden="true">·</span>
+            <span>React / TS / .NET</span>
+          </div>
+          <div class="hero-actions">
+            <a class="btn-solid" href="#projects"
+              >See my work<span class="btn-arrow" aria-hidden="true">↓</span></a
+            >
+            <a
+              class="link-quiet"
+              href="public/gaurav_patil_resume.pdf"
+              download="Gaurav_Patil_Resume.pdf"
+              >Download résumé</a
+            >
+          </div>
+          <div class="hero-socials mono">
+            <a
+              href="https://github.com/gaurav-patil-1"
+              target="_blank"
+              rel="noreferrer"
+              >GitHub<span aria-hidden="true">&nbsp;↗</span></a
+            >
+            <a
+              href="https://www.linkedin.com/in/patil-gaurav-dinesh"
+              target="_blank"
+              rel="noreferrer"
+              >LinkedIn<span aria-hidden="true">&nbsp;↗</span></a
+            >
+            <a href="mailto:gauravpatil5152@gmail.com"
+              >Email<span aria-hidden="true">&nbsp;↗</span></a
+            >
+            <a
+              href="https://wa.me/qr/74UDPPRUWASNJ1"
+              target="_blank"
+              rel="noreferrer"
+              >WhatsApp<span aria-hidden="true">&nbsp;↗</span></a
+            >
+            <a
+              href="https://www.instagram.com/_gauravpatil?igsh=MTUyNGU1ZTIzbXBwMA=="
+              target="_blank"
+              rel="noreferrer"
+              >Instagram<span aria-hidden="true">&nbsp;↗</span></a
+            >
+          </div>
+        </div>
+        <div class="hero-scroll mono" aria-hidden="true">
+          <span>Scroll</span>
+        </div>
+      </section>
 
-    <!-- ========== HERO ========== -->
-    <section class="hero" id="home">
-      <div class="hero-inner">
-        <p class="hero-eyebrow"><span class="pulse-dot" aria-hidden="true"></span>Software Engineer II at Catchpoint</p>
-        <h1 class="hero-name">Gaurav <em>Patil</em></h1>
-        <p class="hero-lede">I build fast, reliable products for the web — clean interfaces, dependable APIs, and systems that stay quick as they scale. React&nbsp;+&nbsp;TypeScript up front, .NET&nbsp;+&nbsp;GraphQL underneath.</p>
-        <div class="hero-meta mono">
-          <span>Bengaluru, India</span>
-          <span class="meta-sep" aria-hidden="true">·</span>
-          <span><span id="yearsExp">2+</span> years shipping</span>
-          <span class="meta-sep" aria-hidden="true">·</span>
-          <span>React / TS / .NET</span>
-        </div>
-        <div class="hero-actions">
-          <a class="btn-solid" href="#projects">See my work<span class="btn-arrow" aria-hidden="true">↓</span></a>
-          <a class="link-quiet" href="public/gaurav_patil_resume.pdf" download="Gaurav_Patil_Resume.pdf">Download résumé</a>
-        </div>
-        <div class="hero-socials mono">
-          <a href="https://github.com/gaurav-patil-1" target="_blank" rel="noreferrer">GitHub<span aria-hidden="true">&nbsp;↗</span></a>
-          <a href="https://www.linkedin.com/in/patil-gaurav-dinesh" target="_blank" rel="noreferrer">LinkedIn<span aria-hidden="true">&nbsp;↗</span></a>
-          <a href="mailto:gauravpatil5152@gmail.com">Email<span aria-hidden="true">&nbsp;↗</span></a>
-          <a href="https://wa.me/qr/74UDPPRUWASNJ1" target="_blank" rel="noreferrer">WhatsApp<span aria-hidden="true">&nbsp;↗</span></a>
-          <a href="https://www.instagram.com/_gauravpatil?igsh=MTUyNGU1ZTIzbXBwMA==" target="_blank" rel="noreferrer">Instagram<span aria-hidden="true">&nbsp;↗</span></a>
-        </div>
-      </div>
-      <div class="hero-scroll mono" aria-hidden="true"><span>Scroll</span></div>
-    </section>
-
-    <!-- ========== ABOUT ========== -->
-    <section class="section" id="about">
-      <div class="container">
-        <div class="section-head">
-          <span class="sec-index mono">01</span>
-          <h2 class="sec-title">A bit <em>about</em> me</h2>
-        </div>
-        <div class="about-grid">
-          <div class="about-intro">
-            <figure class="portrait">
-              <div class="portrait-frame">
-                <div class="portrait-img" role="img" aria-label="Portrait of Gaurav Patil"></div>
-                <img class="portrait-shield" src="public/favicon.svg" alt="" aria-hidden="true" draggable="false">
+      <!-- ABOUT  -->
+      <section class="section" id="about">
+        <div class="container">
+          <div class="section-head">
+            <span class="sec-index mono">01</span>
+            <h2 class="sec-title">A bit <em>about</em> me</h2>
+          </div>
+          <div class="about-grid">
+            <div class="about-intro">
+              <figure class="portrait">
+                <div class="portrait-frame">
+                  <div
+                    class="portrait-img"
+                    role="img"
+                    aria-label="Portrait of Gaurav Patil"
+                  ></div>
+                  <img
+                    class="portrait-shield"
+                    src="public/favicon.svg"
+                    alt=""
+                    aria-hidden="true"
+                    draggable="false"
+                  />
+                </div>
+                <figcaption class="portrait-caption mono">
+                  Gaurav · Bengaluru, IN
+                </figcaption>
+              </figure>
+              <div class="about-statement">
+                <p>
+                  I'm a software engineer at Catchpoint, focused on crafting
+                  clean UI, reliable APIs, and systems that are a pleasure to
+                  maintain.
+                </p>
+                <p>
+                  I care about strong engineering fundamentals, thoughtful UX,
+                  and shipping work that stays fast as products scale — the kind
+                  of quality you notice most when nothing breaks.
+                </p>
               </div>
-              <figcaption class="portrait-caption mono">Gaurav · Bengaluru, IN</figcaption>
-            </figure>
-            <div class="about-statement">
-              <p>I'm a software engineer at Catchpoint, focused on crafting clean UI, reliable APIs, and systems that are a pleasure to maintain.</p>
-              <p>I care about strong engineering fundamentals, thoughtful UX, and shipping work that stays fast as products scale — the kind of quality you notice most when nothing breaks.</p>
+            </div>
+            <aside class="about-facts">
+              <div class="facts-list">
+                <div class="fact">
+                  <span class="fact-label mono">Currently</span>
+                  <span class="fact-value"
+                    >Software Engineer II, Catchpoint</span
+                  >
+                </div>
+                <div class="fact">
+                  <span class="fact-label mono">Focus</span>
+                  <span class="fact-value"
+                    >Product engineering, type-safe UI, API design</span
+                  >
+                </div>
+                <div class="fact">
+                  <span class="fact-label mono">Location</span>
+                  <span class="fact-value">Bengaluru, India</span>
+                </div>
+              </div>
+            </aside>
+          </div>
+
+          <div class="stack-rows">
+            <div class="stack-row">
+              <span class="stack-label mono">Core</span>
+              <span class="stack-items mono"
+                >React · React Native · TypeScript · .NET · C# · GraphQL ·
+                SQL</span
+              >
+            </div>
+            <div class="stack-row">
+              <span class="stack-label mono">Additional</span>
+              <span class="stack-items mono"
+                >JavaScript · Node.js · MySQL · Core Java · C++</span
+              >
+            </div>
+            <div class="stack-row">
+              <span class="stack-label mono">Tools</span>
+              <span class="stack-items mono">Git · GitHub · Postman</span>
             </div>
           </div>
-          <aside class="about-facts">
-            <div class="facts-list">
-              <div class="fact">
-                <span class="fact-label mono">Currently</span>
-                <span class="fact-value">Software Engineer II, Catchpoint</span>
-              </div>
-              <div class="fact">
-                <span class="fact-label mono">Focus</span>
-                <span class="fact-value">Product engineering, type-safe UI, API design</span>
-              </div>
-              <div class="fact">
-                <span class="fact-label mono">Location</span>
-                <span class="fact-value">Bengaluru, India</span>
-              </div>
-            </div>
-          </aside>
         </div>
+      </section>
 
-        <div class="stack-rows">
-          <div class="stack-row">
-            <span class="stack-label mono">Core</span>
-            <span class="stack-items mono">React · React Native · TypeScript · .NET · C# · GraphQL · SQL</span>
+      <!-- EXPERIENCE -->
+      <section class="section" id="experience">
+        <div class="container">
+          <div class="section-head">
+            <span class="sec-index mono">02</span>
+            <h2 class="sec-title">Where I've <em>worked</em></h2>
           </div>
-          <div class="stack-row">
-            <span class="stack-label mono">Additional</span>
-            <span class="stack-items mono">JavaScript · Node.js · MySQL · Core Java · C++</span>
-          </div>
-          <div class="stack-row">
-            <span class="stack-label mono">Tools</span>
-            <span class="stack-items mono">Git · GitHub · Postman</span>
+
+          <div class="xp-list">
+            <article class="xp-row">
+              <div class="xp-when mono">
+                <span class="xp-dates">Mar 2025 — Present</span>
+                <span class="xp-dur" id="dur-se2"></span>
+              </div>
+              <div class="xp-what">
+                <h3 class="xp-role">
+                  Software Engineer II <span class="xp-co">· Catchpoint</span>
+                </h3>
+                <ul class="xp-points">
+                  <li>
+                    Delivering product features with a focus on performance,
+                    accessibility, and maintainable UI architecture.
+                  </li>
+                  <li>
+                    Collaborating cross-functionally to turn ambiguous
+                    requirements into shippable increments with clean
+                    interfaces.
+                  </li>
+                </ul>
+                <p class="xp-stack mono">
+                  .NET · React · TypeScript · GraphQL · C# · SQL
+                </p>
+              </div>
+            </article>
+
+            <article class="xp-row">
+              <div class="xp-when mono">
+                <span class="xp-dates">Oct 2023 — Mar 2025</span>
+                <span class="xp-dur" id="dur-se1"></span>
+              </div>
+              <div class="xp-what">
+                <h3 class="xp-role">
+                  Software Engineer I <span class="xp-co">· Catchpoint</span>
+                </h3>
+                <ul class="xp-points">
+                  <li>
+                    Built and maintained UI components and backend endpoints
+                    with a strong emphasis on correctness and developer
+                    ergonomics.
+                  </li>
+                  <li>
+                    Improved reliability via better validation, safer releases,
+                    and clearer telemetry and diagnostics.
+                  </li>
+                </ul>
+                <p class="xp-stack mono">
+                  .NET · React · TypeScript · GraphQL · C# · SQL
+                </p>
+              </div>
+            </article>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- ========== EXPERIENCE ========== -->
-    <section class="section" id="experience">
-      <div class="container">
-        <div class="section-head">
-          <span class="sec-index mono">02</span>
-          <h2 class="sec-title">Where I've <em>worked</em></h2>
-        </div>
+      <!-- PROJECTS -->
+      <section class="section" id="projects">
+        <div class="container">
+          <div class="section-head">
+            <span class="sec-index mono">03</span>
+            <h2 class="sec-title">Things I've <em>built</em></h2>
+          </div>
 
-        <div class="xp-list">
-          <article class="xp-row">
-            <div class="xp-when mono">
-              <span class="xp-dates">Mar 2025 — Present</span>
-              <span class="xp-dur" id="dur-se2"></span>
-            </div>
-            <div class="xp-what">
-              <h3 class="xp-role">Software Engineer II <span class="xp-co">· Catchpoint</span></h3>
-              <ul class="xp-points">
-                <li>Delivering product features with a focus on performance, accessibility, and maintainable UI architecture.</li>
-                <li>Collaborating cross-functionally to turn ambiguous requirements into shippable increments with clean interfaces.</li>
-              </ul>
-              <p class="xp-stack mono">.NET · React · TypeScript · GraphQL · C# · SQL</p>
+          <article class="feature">
+            <span class="corner corner-tl" aria-hidden="true">+</span>
+            <span class="corner corner-tr" aria-hidden="true">+</span>
+            <span class="corner corner-bl" aria-hidden="true">+</span>
+            <span class="corner corner-br" aria-hidden="true">+</span>
+            <p class="feature-kicker mono">
+              Featured · Android app · Google Play
+            </p>
+            <h3 class="feature-title">CivilCalc <em>Pro</em></h3>
+            <p class="feature-desc">
+              A construction estimation app for material, quantity, and workflow
+              calculations — built for the field with offline-first usability,
+              saved projects, and PDF/CSV export. Live on the Google Play Store.
+            </p>
+            <p class="feature-stack mono">
+              React Native · TypeScript · Expo · SQLite
+            </p>
+            <div class="feature-links">
+              <a
+                class="btn-solid"
+                href="https://play.google.com/store/apps/details?id=com.leestudios.civilcalcpro"
+                target="_blank"
+                rel="noreferrer"
+                >Play Store<span class="btn-arrow" aria-hidden="true"
+                  >↗</span
+                ></a
+              >
+              <a
+                class="link-quiet"
+                href="https://civilcalcpro.com/"
+                target="_blank"
+                rel="noreferrer"
+                >civilcalcpro.com ↗</a
+              >
             </div>
           </article>
 
-          <article class="xp-row">
-            <div class="xp-when mono">
-              <span class="xp-dates">Oct 2023 — Mar 2025</span>
-              <span class="xp-dur" id="dur-se1"></span>
-            </div>
-            <div class="xp-what">
-              <h3 class="xp-role">Software Engineer I <span class="xp-co">· Catchpoint</span></h3>
-              <ul class="xp-points">
-                <li>Built and maintained UI components and backend endpoints with a strong emphasis on correctness and developer ergonomics.</li>
-                <li>Improved reliability via better validation, safer releases, and clearer telemetry and diagnostics.</li>
-              </ul>
-              <p class="xp-stack mono">.NET · React · TypeScript · GraphQL · C# · SQL</p>
-            </div>
-          </article>
+          <p class="projects-more">
+            More experiments and works in progress live on
+            <a
+              class="link-inline"
+              href="https://github.com/gaurav-patil-1"
+              target="_blank"
+              rel="noreferrer"
+              >GitHub</a
+            >.
+          </p>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- ========== PROJECTS ========== -->
-    <section class="section" id="projects">
-      <div class="container">
-        <div class="section-head">
-          <span class="sec-index mono">03</span>
-          <h2 class="sec-title">Things I've <em>built</em></h2>
-        </div>
-
-        <article class="feature">
-          <span class="corner corner-tl" aria-hidden="true">+</span>
-          <span class="corner corner-tr" aria-hidden="true">+</span>
-          <span class="corner corner-bl" aria-hidden="true">+</span>
-          <span class="corner corner-br" aria-hidden="true">+</span>
-          <p class="feature-kicker mono">Featured · Android app · Google Play</p>
-          <h3 class="feature-title">CivilCalc <em>Pro</em></h3>
-          <p class="feature-desc">A construction estimation app for material, quantity, and workflow calculations — built for the field with offline-first usability, saved projects, and PDF/CSV export. Live on the Google Play Store.</p>
-          <p class="feature-stack mono">React Native · TypeScript · Expo · SQLite</p>
-          <div class="feature-links">
-            <a class="btn-solid" href="https://play.google.com/store/apps/details?id=com.leestudios.civilcalcpro" target="_blank" rel="noreferrer">Play Store<span class="btn-arrow" aria-hidden="true">↗</span></a>
-            <a class="link-quiet" href="https://civilcalcpro.com/" target="_blank" rel="noreferrer">civilcalcpro.com ↗</a>
+      <!-- GITHUB ACTIVITY -->
+      <section class="section" id="activity">
+        <div class="container">
+          <div class="section-head">
+            <span class="sec-index mono">04</span>
+            <h2 class="sec-title">Always <em>shipping</em></h2>
           </div>
-        </article>
-
-        <p class="projects-more">More experiments and works in progress live on <a class="link-inline" href="https://github.com/gaurav-patil-1" target="_blank" rel="noreferrer">GitHub</a>.</p>
-      </div>
-    </section>
-
-    <!-- ========== GITHUB ACTIVITY ========== -->
-    <section class="section" id="activity">
-      <div class="container">
-        <div class="section-head">
-          <span class="sec-index mono">04</span>
-          <h2 class="sec-title">Always <em>shipping</em></h2>
+          <p class="activity-sub">
+            Open-source contributions and activity over the past 12 months.
+          </p>
+          <div class="contrib-calendar-wrap">
+            <div
+              id="contrib-calendar"
+              class="contrib-calendar"
+              role="img"
+              aria-label="Gaurav Patil's GitHub contribution calendar"
+            ></div>
+          </div>
+          <div
+            class="gh-stats"
+            id="gh-stats"
+            aria-label="GitHub statistics"
+          ></div>
+          <a
+            href="https://github.com/gaurav-patil-1"
+            target="_blank"
+            rel="noreferrer"
+            class="link-quiet"
+            >View GitHub profile ↗</a
+          >
         </div>
-        <p class="activity-sub">Open-source contributions and activity over the past 12 months.</p>
-        <div class="contrib-calendar-wrap">
-          <div id="contrib-calendar" class="contrib-calendar" role="img" aria-label="Gaurav Patil's GitHub contribution calendar"></div>
-        </div>
-        <div class="gh-stats" id="gh-stats" aria-label="GitHub statistics"></div>
-        <a href="https://github.com/gaurav-patil-1" target="_blank" rel="noreferrer" class="link-quiet">View GitHub profile ↗</a>
-      </div>
-    </section>
+      </section>
 
-    <!-- ========== EDUCATION ========== -->
-    <section class="section" id="education">
-      <div class="container">
-        <div class="section-head">
-          <span class="sec-index mono">05</span>
-          <h2 class="sec-title">Where I <em>studied</em></h2>
-        </div>
+      <!-- EDUCATION -->
+      <section class="section" id="education">
+        <div class="container">
+          <div class="section-head">
+            <span class="sec-index mono">05</span>
+            <h2 class="sec-title">Where I <em>studied</em></h2>
+          </div>
 
-        <div class="xp-list">
-          <article class="xp-row">
-            <div class="xp-when mono">
-              <span class="xp-dates">Mar 2023 — Sep 2023</span>
+          <div class="xp-list">
+            <article class="xp-row">
+              <div class="xp-when mono">
+                <span class="xp-dates">Mar 2023 — Sep 2023</span>
+              </div>
+              <div class="xp-what">
+                <h3 class="xp-role">PG Diploma in Advanced Computing</h3>
+                <p class="xp-co-line">CDAC Bangalore</p>
+              </div>
+            </article>
+
+            <article class="xp-row">
+              <div class="xp-when mono">
+                <span class="xp-dates">Jun 2018 — Jun 2022</span>
+                <span class="xp-dur">CGPA 9.01</span>
+              </div>
+              <div class="xp-what">
+                <h3 class="xp-role">Bachelor of Engineering</h3>
+                <p class="xp-co-line">
+                  Sandip Institute of Engineering and Management, Nashik
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="section section-contact" id="contact">
+        <div class="container">
+          <p class="contact-kicker mono">
+            06 · Contact — open to interesting conversations
+          </p>
+          <h2 class="contact-cta">Let's build something <em>good</em>.</h2>
+
+          <div class="contact-email-row">
+            <a class="contact-email" href="mailto:gauravpatil5152@gmail.com"
+              >gauravpatil5152@gmail.com</a
+            >
+            <button
+              class="copy-btn"
+              data-copy="gauravpatil5152@gmail.com"
+              aria-label="Copy email address"
+              title="Copy email"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="9" y="9" width="13" height="13" rx="2" />
+                <path
+                  d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <form class="cf-form" id="contact-form" autocomplete="off">
+            <p class="cf-heading mono">Or send a message directly</p>
+            <input
+              type="hidden"
+              name="access_key"
+              value="2386e766-05f5-44ee-a321-c33d82338db0"
+            />
+            <input
+              type="hidden"
+              name="subject"
+              value="Portfolio contact - gauravpatil.dev"
+            />
+            <input type="hidden" name="from_name" value="Portfolio Contact" />
+            <input type="checkbox" name="botcheck" style="display: none" />
+            <div class="form-row">
+              <div class="form-group">
+                <label class="mono" for="cf-name">Name</label>
+                <input
+                  class="form-input"
+                  type="text"
+                  id="cf-name"
+                  name="name"
+                  required
+                  placeholder="Your name"
+                />
+              </div>
+              <div class="form-group">
+                <label class="mono" for="cf-email">Email</label>
+                <input
+                  class="form-input"
+                  type="email"
+                  id="cf-email"
+                  name="email"
+                  required
+                  placeholder="you@example.com"
+                />
+              </div>
             </div>
-            <div class="xp-what">
-              <h3 class="xp-role">PG Diploma in Advanced Computing</h3>
-              <p class="xp-co-line">CDAC Bangalore</p>
-            </div>
-          </article>
-
-          <article class="xp-row">
-            <div class="xp-when mono">
-              <span class="xp-dates">Jun 2018 — Jun 2022</span>
-              <span class="xp-dur">CGPA 9.01</span>
-            </div>
-            <div class="xp-what">
-              <h3 class="xp-role">Bachelor of Engineering</h3>
-              <p class="xp-co-line">Sandip Institute of Engineering and Management, Nashik</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== CONTACT ========== -->
-    <section class="section section-contact" id="contact">
-      <div class="container">
-        <p class="contact-kicker mono">06 · Contact — open to interesting conversations</p>
-        <h2 class="contact-cta">Let's build something <em>good</em>.</h2>
-
-        <div class="contact-email-row">
-          <a class="contact-email" href="mailto:gauravpatil5152@gmail.com">gauravpatil5152@gmail.com</a>
-          <button class="copy-btn" data-copy="gauravpatil5152@gmail.com" aria-label="Copy email address" title="Copy email">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-          </button>
-        </div>
-
-        <form class="cf-form" id="contact-form" autocomplete="off">
-          <p class="cf-heading mono">Or send a message directly</p>
-          <input type="hidden" name="access_key" value="2386e766-05f5-44ee-a321-c33d82338db0">
-          <input type="hidden" name="subject" value="Portfolio contact - gauravpatil.dev">
-          <input type="hidden" name="from_name" value="Portfolio Contact">
-          <input type="checkbox" name="botcheck" style="display:none">
-          <div class="form-row">
             <div class="form-group">
-              <label class="mono" for="cf-name">Name</label>
-              <input class="form-input" type="text" id="cf-name" name="name" required placeholder="Your name">
+              <label class="mono" for="cf-message">Message</label>
+              <textarea
+                class="form-textarea"
+                id="cf-message"
+                name="message"
+                required
+                rows="3"
+                placeholder="What's on your mind?"
+              ></textarea>
             </div>
-            <div class="form-group">
-              <label class="mono" for="cf-email">Email</label>
-              <input class="form-input" type="email" id="cf-email" name="email" required placeholder="you@example.com">
+            <div class="cf-footer">
+              <button type="submit" class="btn-solid" id="cf-submit">
+                Send message<span class="btn-arrow" aria-hidden="true">→</span>
+              </button>
+              <p id="cf-status" class="cf-status" aria-live="polite"></p>
             </div>
-          </div>
-          <div class="form-group">
-            <label class="mono" for="cf-message">Message</label>
-            <textarea class="form-textarea" id="cf-message" name="message" required rows="3" placeholder="What's on your mind?"></textarea>
-          </div>
-          <div class="cf-footer">
-            <button type="submit" class="btn-solid" id="cf-submit">Send message<span class="btn-arrow" aria-hidden="true">→</span></button>
-            <p id="cf-status" class="cf-status" aria-live="polite"></p>
-          </div>
-        </form>
+          </form>
 
-        <div class="contact-socials mono">
-          <a href="https://github.com/gaurav-patil-1" target="_blank" rel="noreferrer">GitHub<span aria-hidden="true">&nbsp;↗</span></a>
-          <a href="https://www.linkedin.com/in/patil-gaurav-dinesh" target="_blank" rel="noreferrer">LinkedIn<span aria-hidden="true">&nbsp;↗</span></a>
-          <a href="https://wa.me/qr/74UDPPRUWASNJ1" target="_blank" rel="noreferrer">WhatsApp<span aria-hidden="true">&nbsp;↗</span></a>
-          <a href="https://www.instagram.com/_gauravpatil?igsh=MTUyNGU1ZTIzbXBwMA==" target="_blank" rel="noreferrer">Instagram<span aria-hidden="true">&nbsp;↗</span></a>
+          <div class="contact-socials mono">
+            <a
+              href="https://github.com/gaurav-patil-1"
+              target="_blank"
+              rel="noreferrer"
+              >GitHub<span aria-hidden="true">&nbsp;↗</span></a
+            >
+            <a
+              href="https://www.linkedin.com/in/patil-gaurav-dinesh"
+              target="_blank"
+              rel="noreferrer"
+              >LinkedIn<span aria-hidden="true">&nbsp;↗</span></a
+            >
+            <a
+              href="https://wa.me/qr/74UDPPRUWASNJ1"
+              target="_blank"
+              rel="noreferrer"
+              >WhatsApp<span aria-hidden="true">&nbsp;↗</span></a
+            >
+            <a
+              href="https://www.instagram.com/_gauravpatil?igsh=MTUyNGU1ZTIzbXBwMA=="
+              target="_blank"
+              rel="noreferrer"
+              >Instagram<span aria-hidden="true">&nbsp;↗</span></a
+            >
+          </div>
         </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container footer-bar mono">
+        <span>&copy; <span id="copy-year"></span> Gaurav Patil</span>
+        <span class="footer-time"
+          >Bengaluru — <span id="localTime">--:--</span> IST</span
+        >
+        <span class="footer-hint" title="Try it">↑↑↓↓←→←→BA</span>
       </div>
-    </section>
+    </footer>
 
-  </main>
+    <!-- Toast notification -->
+    <div id="toast" role="status" aria-live="polite"></div>
 
-  <!-- ========== FOOTER ========== -->
-  <footer class="footer">
-    <div class="container footer-bar mono">
-      <span>&copy; <span id="copy-year"></span> Gaurav Patil</span>
-      <span class="footer-time">Bengaluru — <span id="localTime">--:--</span> IST</span>
-      <span class="footer-hint" title="Try it">↑↑↓↓←→←→BA</span>
+    <!-- Easter egg overlay -->
+    <div id="easter-egg" aria-hidden="true">
+      <div class="easter-egg-inner">
+        <span class="easter-egg-emoji">🎮</span>
+        <h2 class="easter-egg-title">Cheat code <em>activated</em></h2>
+        <p class="easter-egg-sub">
+          You found the secret. Not sure what you were expecting, but here's a
+          virtual high-five. ✋<br /><br />↑↑↓↓←→←→BA — a classic.
+        </p>
+        <button class="btn-solid" id="easter-egg-close">
+          Nice, close this
+        </button>
+      </div>
     </div>
-  </footer>
 
-  <!-- Toast notification -->
-  <div id="toast" role="status" aria-live="polite"></div>
-
-  <!-- Easter egg overlay -->
-  <div id="easter-egg" aria-hidden="true">
-    <div class="easter-egg-inner">
-      <span class="easter-egg-emoji">🎮</span>
-      <h2 class="easter-egg-title">Cheat code <em>activated</em></h2>
-      <p class="easter-egg-sub">You found the secret. Not sure what you were expecting, but here's a virtual high-five. ✋<br><br>↑↑↓↓←→←→BA — a classic.</p>
-      <button class="btn-solid" id="easter-egg-close">Nice, close this</button>
-    </div>
-  </div>
-
-  <script defer src='https://portalstage.catchpoint.com/jp/186307/latest/InitialLoadScript.js'></script>
-  <script src="assets/main.js?v=3"></script>
-</body>
+    <script
+      defer
+      src="https://portalstage.catchpoint.com/jp/186307/latest/InitialLoadScript.js"
+    ></script>
+    <script src="assets/main.js?v=3"></script>
+  </body>
 </html>

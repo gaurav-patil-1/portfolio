@@ -3,7 +3,7 @@
 
   var html = document.documentElement;
 
-  /* ---------- Circular Favicon ---------- */
+  // Circular Favicon
   (function () {
     var img = new Image();
     img.onload = function () {
@@ -26,13 +26,13 @@
     img.src = 'assets/portrait.jpg';
   }());
 
-  /* ---------- Portrait guard ---------- */
+  // Portrait guard
   document.querySelectorAll('.portrait').forEach(function (fig) {
     fig.addEventListener('contextmenu', function (e) { e.preventDefault(); });
     fig.addEventListener('dragstart', function (e) { e.preventDefault(); });
   });
 
-  /* ---------- Theme ---------- */
+  // Theme
   var THEME_COLORS = { dark: '#0e0d0b', light: '#faf6ef' };
 
   function currentTheme() {
@@ -60,7 +60,7 @@
     });
   }
 
-  /* ---------- Role Duration Badges ---------- */
+  // Role Duration Badges
   (function () {
     function getDuration(start, end) {
       var s = new Date(start);
@@ -81,11 +81,11 @@
     if (se2) se2.textContent = getDuration('2025-03-01', new Date());
   }());
 
-  /* ---------- Copyright Year ---------- */
+  // Copyright Year
   var yearEl = document.getElementById('copy-year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  /* ---------- Dynamic Experience ---------- */
+  // Dynamic Experience
   var expEl = document.getElementById('yearsExp');
   if (expEl) {
     var start = new Date(2023, 9, 9); // Oct 9, 2023
@@ -93,7 +93,7 @@
     expEl.textContent = years + '+';
   }
 
-  /* ---------- Local Time (IST) ---------- */
+  // Local Time (IST)
   (function () {
     var timeEl = document.getElementById('localTime');
     if (!timeEl) return;
@@ -107,7 +107,7 @@
     setInterval(tick, 30000);
   }());
 
-  /* ---------- Header scrolled state ---------- */
+  // Header scrolled state
   var header = document.getElementById('siteHeader');
   if (header) {
     var onScroll = function () {
@@ -117,7 +117,7 @@
     onScroll();
   }
 
-  /* ---------- Mobile menu overlay ---------- */
+  // Mobile menu overlay
   (function () {
     var toggle = document.getElementById('menuToggle');
     var overlay = document.getElementById('menuOverlay');
@@ -144,7 +144,7 @@
     });
   }());
 
-  /* ---------- GitHub Contribution Heatmap ---------- */
+  // GitHub Contribution Heatmap
   (function () {
     var username = 'gaurav-patil-1';
     var container = document.getElementById('contrib-calendar');
@@ -266,7 +266,7 @@
       });
     }
 
-    /* Native GitHub stats — total, longest streak, current streak */
+    // Native GitHub stats — total, longest streak, current streak
     function renderStats(contributions) {
       var statsEl = document.getElementById('gh-stats');
       if (!statsEl) return;
@@ -335,7 +335,7 @@
       });
   }());
 
-  /* ---------- Nav active state on scroll ---------- */
+  // Nav active state on scroll
   var sections = document.querySelectorAll('section[id]');
   var navLinks = document.querySelectorAll('a[data-section]');
 
@@ -357,7 +357,7 @@
     sections.forEach(function (s) { sectionObs.observe(s); });
   }
 
-  /* ---------- Scroll Reveal ---------- */
+  // Scroll Reveal
   var revealEls = document.querySelectorAll(
     '.section-head, .about-statement, .about-facts, .stack-rows, .xp-row, ' +
     '.feature, .projects-more, .activity-sub, .contrib-calendar-wrap, .gh-stats, ' +
@@ -380,7 +380,7 @@
     });
   }
 
-  /* ---------- Scroll Progress Bar ---------- */
+  // Scroll Progress Bar
   var scrollBar = document.getElementById('scroll-bar');
   if (scrollBar) {
     window.addEventListener('scroll', function () {
@@ -390,7 +390,7 @@
     }, { passive: true });
   }
 
-  /* ---------- Toast ---------- */
+  // Toast
   function showToast(msg) {
     var t = document.getElementById('toast');
     if (!t) return;
@@ -400,7 +400,7 @@
     t._hideTimer = setTimeout(function () { t.classList.remove('show'); }, 2500);
   }
 
-  /* ---------- Copy Email ---------- */
+  // Copy Email
   document.querySelectorAll('.copy-btn[data-copy]').forEach(function (btn) {
     btn.addEventListener('click', function () {
       var text = btn.getAttribute('data-copy');
@@ -427,7 +427,7 @@
     });
   });
 
-  /* ---------- Easter Egg — Konami Code ---------- */
+  // Easter Egg
   (function () {
     var CODE = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown',
                 'ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
@@ -461,7 +461,7 @@
     }
   }());
 
-  /* ---------- Contact Form (Web3Forms) ---------- */
+  // Contact Form (Web3Forms)
   (function () {
     var form      = document.getElementById('contact-form');
     var statusEl  = document.getElementById('cf-status');

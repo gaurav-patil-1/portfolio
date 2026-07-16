@@ -1,11 +1,3 @@
-/* ==============================================
-   Gaurav Patil — Portfolio
-   Editorial ink & paper. One accent. No noise*.
-   (*except the film grain — that one's on purpose)
-   ============================================== */
-
-/* ---------- Themes ---------- */
-
 [data-theme="dark"] {
   --bg: #0e0d0b;
   --bg-2: #151310;
@@ -36,8 +28,6 @@
   --grain-opacity: 0.07;
 }
 
-/* ---------- Reset & base ---------- */
-
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -47,7 +37,6 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 88px;
-  /* clip, not hidden — hidden turns body into a scroll container and breaks anchor scrolling */
   overflow-x: clip;
 }
 
@@ -62,7 +51,6 @@ body {
   transition: background 0.4s ease, color 0.4s ease;
 }
 
-/* Film grain */
 body::after {
   content: '';
   position: fixed;
@@ -159,8 +147,6 @@ img {
   pointer-events: none;
 }
 
-/* ---------- Links ---------- */
-
 .link-inline {
   color: var(--accent);
   background-image: linear-gradient(var(--accent), var(--accent));
@@ -208,8 +194,6 @@ img {
   100% { transform: scaleX(1); }
 }
 
-/* ---------- Solid button ---------- */
-
 .btn-solid {
   display: inline-flex;
   align-items: center;
@@ -242,10 +226,7 @@ img {
 .btn-solid:hover .btn-arrow { transform: translateY(2px); }
 .btn-solid:hover .btn-arrow:last-child { transform: translate(2px, 0); }
 
-/* ==============================================
-   HEADER
-   ============================================== */
-
+/* HEADER */
 .site-header {
   position: fixed;
   top: 0;
@@ -382,7 +363,7 @@ img {
 .menu-open .menu-toggle span:first-child { transform: translateY(3.75px) rotate(45deg); }
 .menu-open .menu-toggle span:last-child { transform: translateY(-3.75px) rotate(-45deg); }
 
-/* ---------- Fullscreen menu overlay ---------- */
+/* Fullscreen menu overlay */
 
 .menu-overlay {
   position: fixed;
@@ -464,9 +445,7 @@ img {
 
 .overlay-foot a:hover { color: var(--accent); }
 
-/* ==============================================
-   HERO
-   ============================================== */
+/* HERO */
 
 .hero {
   position: relative;
@@ -478,7 +457,6 @@ img {
   padding: 140px clamp(20px, 5vw, 48px) 80px;
 }
 
-/* Whisper of warmth behind the hero — not an orb rave */
 .hero::before {
   content: '';
   position: absolute;
@@ -611,9 +589,7 @@ img {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ==============================================
-   SECTIONS
-   ============================================== */
+/* SECTIONS */
 
 .section {
   padding: clamp(80px, 12vh, 140px) 0;
@@ -640,7 +616,7 @@ img {
 
 .sec-title em { color: var(--accent); }
 
-/* ---------- About ---------- */
+/* About */
 
 .about-grid {
   display: grid;
@@ -695,8 +671,6 @@ img {
   color: var(--ink-2);
 }
 
-/* Portrait — real photo as CSS background; the transparent "shield" <img>
-   on top is a blank SVG, so save-image/long-press/open-in-new-tab get nothing */
 .portrait {
   grid-column: 2;
   grid-row: 1;
@@ -761,7 +735,7 @@ img {
   line-height: 1.9;
 }
 
-/* ---------- Experience & education rows ---------- */
+/* Experience & education rows */
 
 .xp-list { border-top: 1px solid var(--line); }
 
@@ -842,7 +816,7 @@ img {
   font-size: 0.76rem;
 }
 
-/* ---------- Featured project ---------- */
+/* Featured project */
 
 .feature {
   position: relative;
@@ -911,7 +885,7 @@ img {
   color: var(--ink-2);
 }
 
-/* ---------- GitHub activity ---------- */
+/* GitHub activity */
 
 .activity-sub {
   font-size: 0.95rem;
@@ -999,7 +973,7 @@ img {
   font-size: 0.9rem;
 }
 
-/* ---------- Contact ---------- */
+/* Contact */
 
 .section-contact {
   padding-bottom: clamp(60px, 8vh, 100px);
@@ -1152,7 +1126,7 @@ img {
 
 .contact-socials a:hover { color: var(--accent); }
 
-/* ---------- Footer ---------- */
+/* Footer */
 
 .footer {
   border-top: 1px solid var(--line);
@@ -1175,7 +1149,7 @@ img {
 
 .footer-hint:hover { color: var(--accent); }
 
-/* ---------- Toast ---------- */
+/* Toast */
 
 #toast {
   position: fixed;
@@ -1200,7 +1174,7 @@ img {
   transform: translateX(-50%) translateY(0);
 }
 
-/* ---------- Easter egg ---------- */
+/* Easter egg */
 
 #easter-egg {
   position: fixed;
@@ -1256,7 +1230,7 @@ img {
   margin: 0 0 1.75rem;
 }
 
-/* ---------- Scroll reveal ---------- */
+/* Scroll reveal */
 
 .reveal {
   opacity: 0;
@@ -1272,11 +1246,7 @@ img {
 .xp-row.reveal:nth-child(2) { transition-delay: 90ms; }
 .xp-row.reveal:nth-child(3) { transition-delay: 180ms; }
 
-/* ==============================================
-   RESPONSIVE
-   ============================================== */
-
-/* Big monitors — let the type breathe */
+/* RESPONSIVE */
 @media (min-width: 1800px) {
   html { font-size: 18px; }
 
@@ -1325,8 +1295,7 @@ img {
   }
 }
 
-/* Phones requesting a desktop viewport still have a tall, touch-first screen.
-   Keep the desktop navigation, but avoid stretching the hero to that full height. */
+/* Phones requesting a desktop viewport */
 @media (min-width: 761px) and (max-width: 1024px) and (orientation: portrait) and (hover: none) and (pointer: coarse) {
   .hero {
     min-height: auto;
@@ -1426,7 +1395,7 @@ img {
   .feature { padding: 28px 20px; }
 }
 
-/* ---------- Print ---------- */
+/* Print */
 
 @media print {
   body { background: #fff; color: #000; }
@@ -1448,7 +1417,7 @@ img {
   .section { padding: 24px 0; }
 }
 
-/* ---------- Reduced motion ---------- */
+/* Reduced motion */
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
