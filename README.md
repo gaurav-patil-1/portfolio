@@ -1,6 +1,6 @@
 # gauravpatil.dev
 
-Personal portfolio — a single hand-built page. No framework, no build step, no template.
+Personal portfolio - a single hand-built page. No framework, no build step, no template.
 
 ## Design
 
@@ -14,7 +14,7 @@ numbered sections, and a touch of film grain. Dark and light themes.
 - GitHub contribution heatmap + streak stats rendered natively from the
   [jogruber contributions API](https://github-contributions-api.jogruber.de)
 - Contact form via Web3Forms
-- Static-only — GitHub Pages compatible
+- Static-only - GitHub Pages compatible
 
 ## Local development
 
@@ -28,6 +28,6 @@ python3 -m http.server 4173
 ## Notes
 
 - Theme preference persists in `localStorage`; defaults to `prefers-color-scheme`.
-- Asset links carry a `?v=N` query string — bump it when editing CSS/JS so
+- Asset links carry a `?v=N` query string - bump it when editing CSS/JS so
   returning visitors don't get stale cached assets.
 - There's a Konami code easter egg. ↑↑↓↓←→←→BA.

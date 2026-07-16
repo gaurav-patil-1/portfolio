@@ -5,5 +5,5 @@ node_modules
 .vscode
 .idea
 *.swp
-# HD originals — never deploy
+# HD originals - never deploy
 assets/GP_PFP.png

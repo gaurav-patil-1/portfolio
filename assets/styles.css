@@ -341,7 +341,7 @@ img {
 [data-theme="light"] .icon-sun { display: none; }
 [data-theme="light"] .icon-moon { display: block; }
 
-/* Hamburger — hidden on desktop */
+/* Hamburger - hidden on desktop */
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -803,7 +803,7 @@ img {
 }
 
 .xp-points li::before {
-  content: '—';
+  content: '-';
   position: absolute;
   left: 0;
   color: var(--accent);

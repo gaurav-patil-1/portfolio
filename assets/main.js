@@ -266,7 +266,7 @@
       });
     }
 
-    // Native GitHub stats — total, longest streak, current streak
+    // Native GitHub stats - total, longest streak, current streak
     function renderStats(contributions) {
       var statsEl = document.getElementById('gh-stats');
       if (!statsEl) return;
@@ -324,7 +324,7 @@
         cachedWeeks = buildWeeks(data.contributions);
         draw(currentTheme());
         renderStats(data.contributions);
-        // On narrow screens the strip overflows — start at the recent end
+        // On narrow screens the strip overflows - start at the recent end
         var wrap = container.closest('.contrib-calendar-wrap');
         if (wrap && wrap.scrollWidth > wrap.clientWidth) {
           wrap.scrollLeft = wrap.scrollWidth;
@@ -414,7 +414,7 @@
         var ok = false;
         try { ok = document.execCommand('copy'); } catch (e) { /* unsupported */ }
         document.body.removeChild(ta);
-        showToast(ok ? '✓ Email copied!' : 'Copy failed — email is gauravpatil5152@gmail.com');
+        showToast(ok ? '✓ Email copied!' : 'Copy failed - email is gauravpatil5152@gmail.com');
       }
 
       if (navigator.clipboard && window.isSecureContext) {
@@ -487,7 +487,7 @@
           }
         })
         .catch(function () {
-          statusEl.textContent = 'Something went wrong — try emailing directly.';
+          statusEl.textContent = 'Something went wrong - try emailing directly.';
           statusEl.className = 'cf-status error';
         })
         .finally(function () {
