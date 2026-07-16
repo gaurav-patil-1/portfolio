@@ -16,15 +16,6 @@ numbered sections, and a touch of film grain. Dark and light themes.
 - Contact form via Web3Forms
 - Static-only - GitHub Pages compatible
 
-## Local development
-
-Any static server works:
-
-```bash
-python3 -m http.server 4173
-# → http://localhost:4173
-```
-
 ## Notes
 
 - Theme preference persists in `localStorage`; defaults to `prefers-color-scheme`.
