@@ -645,8 +645,18 @@ img {
 .about-grid {
   display: grid;
   grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
-  gap: clamp(32px, 6vw, 80px);
+  column-gap: clamp(32px, 6vw, 80px);
+  row-gap: 0;
   margin-bottom: clamp(48px, 7vh, 72px);
+}
+
+.about-intro {
+  display: contents;
+}
+
+.about-statement {
+  grid-column: 1;
+  grid-row: 1 / span 2;
 }
 
 .about-statement p {
@@ -659,10 +669,15 @@ img {
 .about-statement p:last-child { margin-bottom: 0; }
 
 .about-facts {
+  grid-column: 2;
+  grid-row: 2;
   display: flex;
   flex-direction: column;
   gap: 0;
-  border-top: 1px solid var(--line);
+}
+
+.facts-list {
+  min-width: 0;
 }
 
 .fact {
@@ -683,6 +698,8 @@ img {
 /* Portrait — real photo as CSS background; the transparent "shield" <img>
    on top is a blank SVG, so save-image/long-press/open-in-new-tab get nothing */
 .portrait {
+  grid-column: 2;
+  grid-row: 1;
   margin-bottom: 28px;
 }
 
@@ -1275,6 +1292,34 @@ img {
     gap: 40px;
   }
 
+  .about-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 160px;
+    align-items: start;
+    gap: clamp(24px, 5vw, 48px);
+  }
+
+  .about-statement {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .about-facts {
+    grid-column: 1;
+    grid-row: auto;
+    border-top: 1px solid var(--line);
+  }
+
+  .portrait {
+    grid-column: 2;
+    grid-row: 1;
+    margin-bottom: 0;
+  }
+
+  .portrait-frame {
+    width: 100%;
+  }
+
   .xp-row {
     grid-template-columns: 180px 1fr;
   }
@@ -1311,6 +1356,31 @@ img {
   .section-head {
     flex-direction: column;
     gap: 8px;
+  }
+
+  .about-grid {
+    gap: 32px;
+  }
+
+  .about-intro {
+    display: flow-root;
+  }
+
+  .about-statement {
+    display: block;
+  }
+
+  .portrait {
+    float: right;
+    width: clamp(108px, 30vw, 132px);
+    margin: 0 0 12px 20px;
+  }
+
+  .portrait-caption {
+    margin-top: 9px;
+    font-size: 0.55rem;
+    line-height: 1.5;
+    text-align: center;
   }
 
   .footer-bar {
